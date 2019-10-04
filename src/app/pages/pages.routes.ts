@@ -1,26 +1,19 @@
-// import { RouterModule, Routes } from '@angular/router';
-// import { DashboardComponent } from './dashboard/dashboard.component';
-// import { PagesComponent } from './pages.component';
-// import { NopagefoundComponent } from '../shared/nopagefound/nopagefound.component';
+import { RouterModule, Routes } from '@angular/router';
 
-// const PAGESROUTES: Routes = [
-//     {
-//         path: '',
-//             // redirectTo: '/dashboard',
-//             // pathMatch: 'full',
-//             component: PagesComponent,
-//             children: [
-//             {
-//                 path: 'dashboard',
-//                 component: DashboardComponent,
-//                 // canActivate: [ LoginGuard ]
-//             },
-//             {
-//                 path: '', redirectTo: '/dashboard', pathMatch: 'full' 
-//             },
-//             { path: '**', component: NopagefoundComponent}
-//         ]
-//     },
-// ];
+import { PagesComponent } from './pages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MispacientesComponent } from './mispacientes/mispacientes.component';
 
-// export const PAGES_ROUTES = RouterModule.forChild(PAGESROUTES);
+const PAGESROUTES: Routes = [
+    {
+        path: '',
+        component: PagesComponent,
+        children: [
+            { path: 'dashboard', component: DashboardComponent },
+            { path: 'mispacientes', component: MispacientesComponent },
+            { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+        ]
+    }
+];
+
+export const PAGES_ROUTES = RouterModule.forChild(PAGESROUTES);
