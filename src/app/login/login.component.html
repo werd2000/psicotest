@@ -15,36 +15,37 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Bienvenido/a nuevamente!</h1>
                 </div>
-                <form class="user">
+                <form ngNativeValidate [formGroup]="forma" (ngSubmit)="login()" class="user">
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Ingrese Email...">
+                    <input formControlName="email" type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Ingrese Email...">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                    <input formControlName="password" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">
-                      <input type="checkbox" class="custom-control-input" id="customCheck">
+                      <input formControlName="recuerdame" type="checkbox" class="custom-control-input" id="customCheck">
                       <label class="custom-control-label" for="customCheck">Recordarme</label>
                     </div>
                   </div>
-                  <a href="index.html" class="btn btn-primary btn-user btn-block">
+                  <button type="submit" href="index.html" class="btn btn-primary btn-user btn-block">
                     Ingresar
-                  </a>
-                  <hr>
-                  <a href="index.html" class="btn btn-google btn-user btn-block">
-                    <i class="fab fa-google fa-fw"></i> Ingresar con Google
-                  </a>
-                  <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                    <i class="fab fa-facebook-f fa-fw"></i> Ingresar con Facebook
-                  </a>
+                  </button>
+                  
                 </form>
                 <hr>
+                <button (click)="loginWhith('google')" class="btn btn-google btn-user btn-block" id="btnGoogle">
+                  <i class="fab fa-google fa-fw"></i> Ingresar con Google
+                </button>
+                <!-- <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                  <i class="fab fa-facebook-f fa-fw"></i> Ingresar con Facebook
+                </a> -->
+                <hr>
                 <div class="text-center">
-                  <a class="small" href="forgot-password.html">Olvidó su Password?</a>
+                  <a class="small" [routerLink]="['/forgot-password']">Olvidó su Password?</a>
                 </div>
                 <div class="text-center">
-                  <a class="small" [routerLink]="['/register']">Cree una cuenta!</a>
+                  <a class="small" href="/#/register">Cree una cuenta!</a>
                 </div>
               </div>
             </div>
