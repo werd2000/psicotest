@@ -1,0 +1,74 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Perfil de usuario</h1>
+</div>
+<!-- End Page Heading -->
+
+<div class="row">
+  <!-- Column Image -->
+  <div class="col-lg-4 col-xlg-3 col-md-5">
+    <div class="card border-left-success shadow h-100 py-0">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">
+                <i class="fas fa-portrait"></i> Imagen del usuario
+            </h6>
+        </div>
+        <div class="card-body" *ngIf="usuario">
+            <div class="m-t-30 text-center">
+                <img *ngIf="!imagenTemp" [src]="usuario.img | imagen" class="img-circle mb-4" width="150">
+                <img *ngIf="imagenTemp" [src]="imagenTemp" class="img-circle mb-4" width="150">
+                <input (change)="seleccionImagen($event.target.files[0])" *ngIf="!usuario.google" type="file" class="mb-3">
+                <!-- <small *ngIf="usuario.google">Los usuario de Google no pueden modificar su imagen</small> -->
+                <button (click)="cambiarImagen()" *ngIf="!usuario.google" [disabled]="!subir" type="button" class="btn btn-outline-success waves-effect waves-light m-r-10">
+                    <i class="fa fa-save"></i>
+                    Actualizar foto
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Column Image -->
+<!-- Column -->
+<div class="col-lg-8 col-xlg-9 col-md-7">
+    <div class="card border-left-primary shadow h-100 py-0">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">
+                <i class="fas fa-user-edit"></i> Perfil del usuario
+            </h6>
+        </div>
+        <div class="card-body" *ngIf="usuario">
+
+            <form [formGroup]="forma" (ngSubmit)="guardar()" class="form-horizontal form-material p-2">
+
+                <div class="form-group row">
+                    <label>Nombres</label>
+                    <input formControlName="nombres" required name="nombres" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nombres">
+                </div>
+                <div class="form-group row">
+                    <label>Apellidos</label>
+                    <input formControlName="apellidos" required name="apellidos" type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Apellidos">
+                </div>
+                <div class="form-group row">
+                    <label>Email</label>
+                    <input formControlName="email" required name="apellidos" type="email" class="form-control form-control-user" id="exampleEmail" placeholder="Email">
+                </div>
+                <div class="form-group row">
+                    <label>Role</label>
+                    <select class="form-control" formControlName="role" name="role" id="role">
+                        <option [value]="item" *ngFor="let item of roles">{{item}}</option>
+                    </select>
+                    <!-- <input type="text" class="form-control" formControlName="role" placeholder="Rol del usuario"> -->
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <button class="btn btn-outline-success btn-block">
+                        <i class="fa fa-save"></i>
+                        Actualizar Perfil</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>

@@ -16,11 +16,14 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MispacientesComponent } from './mispacientes/mispacientes.component';
 import { TestsComponent } from './tests/tests.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CommonModule } from '@angular/common';
 
 
 
 @NgModule({
   imports: [
+    CommonModule,
     SharedModule,
     PAGES_ROUTES,
     FormsModule,
@@ -32,6 +35,7 @@ import { TestsComponent } from './tests/tests.component';
     DashboardComponent,
     MispacientesComponent,
     TestsComponent,
+    ProfileComponent,
   ],
   exports: [
     DashboardComponent,

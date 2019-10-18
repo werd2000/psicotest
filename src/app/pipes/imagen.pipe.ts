@@ -11,10 +11,10 @@ export class ImagenPipe implements PipeTransform {
 
   transform(img: string, tipo: string = 'usuario'): any {
 
-    let url = 'assets/img';
+    let url = './assets/img';
 
     if (!img) {
-      img = 'usuario_default.jpeg';
+      img = 'usuario_default.jpg';
     }
 
     if (img.indexOf('https') >= 0 ) {
@@ -38,7 +38,6 @@ export class ImagenPipe implements PipeTransform {
       console.log('Tipo de imagen no válida. Usuario, Profesional, Centro Médico');
       url += '/usuario/xxx';
     }
-    // console.log(url);
     return url;
   }
 

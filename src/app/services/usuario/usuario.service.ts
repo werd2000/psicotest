@@ -33,6 +33,7 @@ export class UsuarioService {
   }
 
   editUser(user) {
+    console.log(user);
     return this.usuariosCollection.doc(user._id).update(user);
   }
 
