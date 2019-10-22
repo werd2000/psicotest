@@ -11,13 +11,14 @@ import { PipesModule } from '../pipes/pipes.module';
 
 // Componentes
 // El principal
-import { PagesComponent } from './pages.component';
 // las de las rutas
+import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MispacientesComponent } from './mispacientes/mispacientes.component';
 import { TestsComponent } from './tests/tests.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CommonModule } from '@angular/common';
+import { PacienteComponent } from './mispacientes/paciente.component';
 
 
 
@@ -28,7 +29,7 @@ import { CommonModule } from '@angular/common';
     PAGES_ROUTES,
     FormsModule,
     ReactiveFormsModule,
-    PipesModule
+    PipesModule,
   ],
   declarations: [
     PagesComponent,
@@ -36,10 +37,12 @@ import { CommonModule } from '@angular/common';
     MispacientesComponent,
     TestsComponent,
     ProfileComponent,
+    PacienteComponent,
   ],
   exports: [
     DashboardComponent,
-    MispacientesComponent
+    MispacientesComponent,
+    PacienteComponent
   ]
 })
 export class PagesModule { }

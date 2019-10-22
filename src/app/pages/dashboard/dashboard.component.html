@@ -33,9 +33,14 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pacientes</div>
-              <div class="h5 mb-1 font-weight-bold text-gray-800">Ud. todavía no tiene pacientes</div>
+              <div class="h5 mb-1 font-weight-bold text-gray-800" *ngIf="!pacientes.length > 0">
+                Ud. todavía no tiene pacientes
+              </div>
+              <div class="h5 mb-1 font-weight-bold text-gray-800" *ngIf="pacientes.length > 0">
+                Ud. tiene {{ pacientes.length }} pacientes
+              </div>
               <div class="h6 mb-0 font-weight-bold text-gray-800">
-                <a href="#">
+                <a href="#" [routerLink]="['/paciente/nuevo']">
                   Agregar paciente.
                 </a>
               </div>

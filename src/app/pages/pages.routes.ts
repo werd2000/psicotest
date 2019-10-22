@@ -6,6 +6,7 @@ import { MispacientesComponent } from './mispacientes/mispacientes.component';
 // import { NopagefoundComponent } from '../shared/nopagefound/nopagefound.component';
 import { TestsComponent } from './tests/tests.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PacienteComponent } from './mispacientes/paciente.component';
 
 const PAGESROUTES: Routes = [
     {
@@ -14,7 +15,8 @@ const PAGESROUTES: Routes = [
         children: [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'profile/:id', component: ProfileComponent },
-            { path: 'mispacientes', component: MispacientesComponent },
+            { path: 'pacientes', component: MispacientesComponent },
+            { path: 'paciente/:id', component: PacienteComponent },
             { path: 'tests', component: TestsComponent },
             { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
         ]

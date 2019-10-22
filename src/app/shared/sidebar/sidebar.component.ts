@@ -14,12 +14,11 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     // Minimizo el sidebar cuando hago click en el boton sidebarToggle
-    this.sidebar = document.getElementsByClassName("sidebar").item(0);
-    this.sidebarToggleBtn = document.getElementById("sidebarToggle");
+    this.sidebar = document.getElementsByClassName('sidebar').item(0);
+    this.sidebarToggleBtn = document.getElementById('sidebarToggle');
     this.sidebarToggleBtn.addEventListener('click', (event) => {
       this.sidebar.classList.toggle('toggled');
-    })
-    
+    });
   }
 
 
