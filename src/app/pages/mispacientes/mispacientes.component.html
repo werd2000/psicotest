@@ -1,3 +1,48 @@
-<p>
-  mispacientes works!
-</p>
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Lista de pacientes</h1>
+</div>
+<!-- End Page Heading -->
+
+<div class="alert alert-warning" role="alert" *ngIf="!pacientes.length > 0 && !cargando">
+  Ud todavía no tiene pacientes!
+</div>
+
+<div class="alert alert-warning" role="alert" *ngIf="cargando">
+  Cargando datos!
+</div>
+
+<div class="row" *ngIf="pacientes.length > 0">
+    <div class="card-body">
+        <div class="table-responsive">
+          <table class="table" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Apellido</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Domicilio</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pac of pacientes">
+                <td>{{pac.apellido}}</td>
+                <td>{{pac.nombre}}</td>
+                <td>{{pac.edad}}</td>
+                <td>{{pac.domicilio}}</td>
+                <td>
+                    <a [routerLink] = "['/paciente', pac._id]" class="btn btn-info btn-circle btn-sm mr-1">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                    <button (click)="eliminarPaciente(pac)" class="btn btn-danger btn-circle btn-sm">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+</div>

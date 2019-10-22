@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import {
   UsuarioService,
-  SubirArchivoService
+  SubirArchivoService,
+  PacienteService
 } from './index.service';
-
-
 
 
 @NgModule({
@@ -17,7 +16,8 @@ import {
   declarations: [],
   providers: [
     UsuarioService,
-    SubirArchivoService
+    SubirArchivoService,
+    PacienteService
   ]
 })
 export class ServiceModule { }
