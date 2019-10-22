@@ -1,0 +1,80 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">{{titulo}}</h1>
+</div>
+<!-- End Page Heading -->
+
+<div class="row justify-content-center">
+    <div class="col-lg-9 col-xlg-10 col-md-8">
+        <div class="card border-left-success shadow h-100 py-0">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-user-edit"></i> Datos del paciente
+                </h6>
+            </div>
+            <div class="card-body" *ngIf="paciente">
+                <form [formGroup]="forma" (ngSubmit)="guardar()" class="form-horizontal form-material p-2">
+                    <div class="form-group row">
+                        <label for="nombre">Nombre</label>
+                        <input formControlName="nombre" required name="nombre" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nombre">
+                    </div>
+                    <div class="form-group row">
+                        <label for="apellido">Apellido</label>
+                        <input formControlName="apellido" required name="apellido" type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Apellido">
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-4">
+                        <label for="sexo">Sexo</label>
+                        <select formControlName="sexo" name="sexo" id="sexo" class="form-control form-control-user">
+                          <option value="Varón" selected>Varón</option>
+                          <option value="Mujer">Mujer</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-5">
+                        <label for="fechaNac">Fecha Nacimiento</label>
+                        <input formControlName="fechaNac" name="fechaNac" id="fechaNac" type="date" class="form-control form-control-user" (change)="calcularEdad($event)">
+                      </div>
+                      <div class="col-md-3" *ngIf="edad">
+                        <label>Edad</label>
+                        <input name="edad" id="edad" type="text" class="form-control form-control-user" [value]="edad" disabled>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="nacionalidad">Nacionalidad</label>
+                      <select formControlName="nacionalidad" name="nacionalidad" id="nacionalidad" class="form-control form-control-user">
+                        <option value="DNI">Argentina</option>
+                      </select>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-5">
+                        <label for="tipoDoc">Documento</label>
+                        <select formControlName="tipoDoc" name="tipoDoc" id="tipoDoc" class="form-control form-control-user">
+                          <option value="DNI" selected>DNI</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-7">
+                        <label for="nroDoc">Nro</label>
+                        <input formControlName="nroDoc" name="nroDoc" id="nroDoc" type="text" class="form-control form-control-user" placeholder="Número de documento">
+                      </div>
+                    </div>                    
+                    <div class="form-group row">
+                      <label for="domicilio">Domicilio</label>
+                      <input formControlName="domicilio" name="domicilio" id="domicilio" type="text" class="form-control form-control-user" placeholder="Domicilio">
+                    </div>
+                    <div class="form-group row">
+                      <label for="contacto">Contacto</label>
+                      <input formControlName="contacto" name="contacto" id="contacto" type="text" class="form-control form-control-user" placeholder="Email, Cel, Tel.">
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                          <button class="btn btn-outline-success btn-block">
+                          <i class="fa fa-save"></i>
+                          Guardar datos</button>
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
