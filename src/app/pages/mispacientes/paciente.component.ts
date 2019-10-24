@@ -30,9 +30,13 @@ export class PacienteComponent implements OnInit, OnDestroy {
     public router: Router,
   ) {
     moment.locale('es');
-    this.authService.getStatus().subscribe( (data) => {
-      this.uidUsuario = data.uid;
-    });
+    this.suscriptor.push(
+      this.authService.getStatus().subscribe( (data) => {
+        if (data) {
+          this.uidUsuario = data.uid;
+        }
+      })
+    );
   }
 
   ngOnInit() {

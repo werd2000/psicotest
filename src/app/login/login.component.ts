@@ -119,7 +119,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.loginWhitEmail(email, password)
     .then( (sucess) => {
       this.router.navigate(['/dashboard']);
-      console.log(sucess);
+      // console.log(sucess);
     })
     .catch( (err) => {
       console.log(err);

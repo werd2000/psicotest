@@ -4,6 +4,7 @@ export class Usuario {
         public apellidos: string,
         public email: string,
         public password: string,
+        public cuenta: string,
         public img?: string,
         public role?: string,
         public google?: boolean,

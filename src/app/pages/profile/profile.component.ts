@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { UsuarioService, SubirArchivoService } from 'src/app/services/index.service';
 import { Usuario } from 'src/app/models/usuario.model';
 import swal from 'sweetalert';
+import { CuentaInterface } from 'src/app/interfaces/cuenta.interface';
 
 @Component({
   selector: 'app-profile',
@@ -22,6 +23,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
   cargando: boolean          = false;
   roles: string[]            = ['ROLE_USUARIO', 'ROLE_ADMIN'];
   usuario: Usuario;
+  cuenta: CuentaInterface;
+  listaCuentas: string[] = ['GRATUITA', 'PAGO MENSUAL', 'PAGO ANUAL'];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -48,7 +51,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
       nombres  : new FormControl(this.usuario.nombres, Validators.required),
       apellidos: new FormControl(this.usuario.apellidos, Validators.required),
       email    : new FormControl({value: this.usuario.email, disabled: true}),
-      role     : new FormControl(this.usuario.role, Validators.required)
+      role     : new FormControl(this.usuario.role, Validators.required),
+      cuenta   : new FormControl(this.usuario.cuenta)
     });
   }
 
@@ -59,6 +63,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       apellidos: this.forma.value.apellidos,
       email: this.usuario.email,
       role: this.forma.value.role,
+      cuenta: this.forma.value.cuenta,
       password: ';)',
       img: this.usuario.img
     };
@@ -105,6 +110,19 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.subirArchivoService.subirArchivo( this.imagenSubir, 'usuario', this.usuario )
       .then( resp => swal('Imagen subida', 'La imagen se subió con exito', 'success'))
       .catch( error => console.error(error));
+  }
+
+  cambiarCuenta() {
+    switch (this.forma.value.cuenta) {
+      case 'PAGO MENSUAL':
+        console.log('Pago mensual');
+        break;
+      case 'PAGO ANUAL':
+        console.log('Pago anual');
+        break;
+      default:
+        break;
+    }
   }
 
 }

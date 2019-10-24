@@ -59,6 +59,12 @@
                     </select>
                     <!-- <input type="text" class="form-control" formControlName="role" placeholder="Rol del usuario"> -->
                 </div>
+                <div class="form-group row">
+                    <label>Cuenta</label>
+                    <select (change)="cambiarCuenta()" class="form-control" formControlName="cuenta" name="cuenta" id="cuenta">
+                        <option [value]="cuenta" *ngFor="let cuenta of listaCuentas">{{cuenta}}</option>
+                    </select>
+                </div>
 
                 <div class="form-group">
                     <div class="col-sm-12">

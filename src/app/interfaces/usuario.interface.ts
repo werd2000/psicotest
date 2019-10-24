@@ -2,6 +2,7 @@ export class UsuarioInterface {
     public nombres: string;
     public apellidos: string;
     public email: string;
+    public cuente: string;
     // public password: string;
     public img?: string;
     public role?: string;

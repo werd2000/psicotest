@@ -61,7 +61,8 @@ export class RegisterComponent implements OnInit {
         email,
         img: '',
         role: 'ROLE_USUARIO',
-        google: false
+        google: false,
+        cuenta: 'GRATUITA'
       };
       this.usuarioService.createUser(user)
         .then( (dataU) => {
@@ -71,7 +72,7 @@ export class RegisterComponent implements OnInit {
             'success'
             );
           this.router.navigate(['/login']);
-          console.log(dataU);
+          // console.log(dataU);
         })
         .catch ( (error) => {
           console.log(error);
@@ -112,7 +113,8 @@ export class RegisterComponent implements OnInit {
         email: data.user.email,
         img: data.user.photoURL,
         role: 'ROLE_USUARIO',
-        google: false
+        google: false,
+        cuenta: 'GRATUITA'
       };
     })
     .catch( (error) => {
@@ -128,7 +130,7 @@ export class RegisterComponent implements OnInit {
   registrarUsuarioGoogle() {
     this.autauthenticationService.registerWithGoogle()
     .then( (data) => {
-      console.log(data);
+      // console.log(data);
       if (!data.additionalUserInfo.isNewUser) {
         swal('Este usuario ya está registrado',
         'Desea ingresar con esta cuenta?',
@@ -148,7 +150,8 @@ export class RegisterComponent implements OnInit {
           email: data.user.email,
           img: data.user.photoURL,
           role: 'ROLE_USUARIO',
-          google: true
+          google: true,
+          cuenta: 'GRATUITA'
         };
         this.usuarioService.createUser(user)
           .then( (dataU) => {
